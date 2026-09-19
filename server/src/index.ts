@@ -38,6 +38,7 @@ io.on("connection", (socket) => {
             const result = SendRoomMessageSchema.safeParse(data);
 
             if(!result.success) {
+                console.log(result.error.issues);
                 return callback({
                     success: false,
                     message: "Invalid message data"
